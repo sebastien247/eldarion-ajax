@@ -83,7 +83,10 @@
             },
             complete: function (jqXHR, textStatus) {
                 $(document).trigger('eldarion-ajax:complete', [$el, jqXHR, textStatus]);
-            }
+            },
+            beforeSend: function(xhr) {
+                $el.trigger('eldarion-ajax:beforeSend', [$el, xhr]);
+            },
         });
     };
 
